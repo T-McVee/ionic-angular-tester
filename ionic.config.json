@@ -1,0 +1,7 @@
+{
+  "name": "ionic-task-tracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
