@@ -1,0 +1,13 @@
+<ion-item>
+  <app-display-toggle
+    [text]="task.text"
+    (inputChange)="updateText($event)"
+  ></app-display-toggle>
+  <ion-label slot="end">
+    <p slot="end" *ngIf="!changeDate; else picker">{{ task.day }}</p>
+    <ng-template #picker>
+      <ion-datetime></ion-datetime>
+    </ng-template>
+  </ion-label>
+  <ion-reorder slot="end"></ion-reorder>
+</ion-item>

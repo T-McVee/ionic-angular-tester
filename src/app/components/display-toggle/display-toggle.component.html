@@ -1,0 +1,16 @@
+<div (click)="onClick()">
+  <ion-label *ngIf="!editMode; else form">
+    <h3>{{ text }}</h3>
+  </ion-label>
+  <ng-template #form>
+    <form>
+      <ion-input
+        #updateText
+        name="text"
+        [(ngModel)]="text"
+        (ionChange)="onChange($event)"
+        (ionBlur)="onBlur()"
+      ></ion-input>
+    </form>
+  </ng-template>
+</div>
