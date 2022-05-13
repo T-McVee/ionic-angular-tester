@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
 export class HomePage {
   title = 'Task Tracker';
 
+  showForm = false;
+
   constructor() {}
+
+  toggleAddTask() {
+    // toggle displaying an add task form
+    console.log('toggle');
+    this.showForm = !this.showForm;
+  }
 }

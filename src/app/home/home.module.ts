@@ -8,6 +8,7 @@ import { TasksComponent } from '../components/tasks/tasks.component';
 import { TaskItemComponent } from '../components/task-item/task-item.component';
 import { ButtonComponent } from '../components/button/button.component';
 import { DisplayToggleComponent } from '../components/display-toggle/display-toggle.component';
+import { ExpenseTrackerComponent } from '../components/expense-tracker/expense-tracker.component';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
@@ -19,6 +20,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     ButtonComponent,
     TaskItemComponent,
     DisplayToggleComponent,
+    ExpenseTrackerComponent,
   ],
 })
 export class HomePageModule {}
