@@ -4,10 +4,14 @@
     (inputChange)="updateText($event)"
   ></app-display-toggle>
   <ion-label slot="end">
-    <p slot="end" *ngIf="!changeDate; else picker">{{ task.day }}</p>
-    <ng-template #picker>
-      <ion-datetime></ion-datetime>
-    </ng-template>
+    <p slot="end">{{ task.day }}</p>
   </ion-label>
+
   <ion-reorder slot="end"></ion-reorder>
+  <ion-icon
+    icon="trash-outline"
+    slot="end"
+    class="delete"
+    (click)="onDeleteTask()"
+  ></ion-icon>
 </ion-item>

@@ -1,0 +1,24 @@
+<form [formGroup]="taskFormData" (ngSubmit)="onSubmit()">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Task Text:</ion-label>
+      <ion-input formControlName="text"></ion-input>
+    </ion-item>
+    <div *ngIf="text.errors?.['required']">Text is required.</div>
+    <div *ngIf="text.errors?.['minlength']">
+      Text must be at least 3 characters long.
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Task Day:</ion-label>
+      <ion-input formControlName="day"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Task Reminder:</ion-label>
+      <ion-checkbox formControlName="reminder"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ion-button type="submit" expand="block" [disabled]="!taskFormData.valid"
+    >Add Task</ion-button
+  >
+</form>

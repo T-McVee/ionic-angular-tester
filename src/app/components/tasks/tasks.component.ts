@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/Task';
 
@@ -8,17 +8,22 @@ import { Task } from 'src/app/Task';
   styleUrls: ['./tasks.component.scss'],
 })
 export class TasksComponent implements OnInit {
-  tasks: Task[] = [];
+  @Input() tasks: Task[];
 
   constructor(private taskService: TaskService) {}
 
-  ngOnInit() {
-    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
-  }
+  ngOnInit() {}
 
   onReorder(e) {
     // Not working --------
     e.detail.complete(this.tasks);
+    console.log(this.tasks);
     this.taskService.updateTasks(this.tasks).subscribe();
+  }
+
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task).subscribe(() => {
+      this.tasks = this.tasks.filter((t) => t.id !== task.id);
+    });
   }
 }

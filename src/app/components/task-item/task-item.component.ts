@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 
 import { Task } from 'src/app/Task';
@@ -11,6 +18,7 @@ import { Task } from 'src/app/Task';
 export class TaskItemComponent implements OnInit {
   @ViewChild('updateText') updateTextEl;
   @Input() task: Task;
+  @Output() deleteTask = new EventEmitter();
 
   text: string;
   day: string;
@@ -39,5 +47,9 @@ export class TaskItemComponent implements OnInit {
     this.taskService
       .updateTaskItem(newTask)
       .subscribe((task) => (this.task = task));
+  }
+
+  onDeleteTask() {
+    this.deleteTask.emit(this.task);
   }
 }
